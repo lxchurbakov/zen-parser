@@ -1,0 +1,15 @@
+{
+  "name": "zen-parser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcfinley/zen-parser.git"
+  },
+  "author": "mcfinley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcfinley/zen-parser/issues"
+  },
+  "homepage": "https://github.com/mcfinley/zen-parser#readme"
+}
