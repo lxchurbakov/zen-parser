@@ -2,7 +2,7 @@
 
 ## Usage
 
-Todo
+TODO
 
 ## Examples
 
