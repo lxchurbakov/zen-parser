@@ -2,17 +2,8 @@
 
 ## Usage
 
-```
-  const zen = require('zen-parser');
+Todo
 
-  // Build a Stream Parser
-  const parser = zen.StreamParser(config);
+## Examples
 
-  // Push tokens to parser
-  parser.push('let');
-  parser.push('test');
-  parser.push('test');
-
-  // Pops all the tokens
-  parser.popAll();
-```
+[Jade](https://github.com/mcfinley/zen-parser/tree/master/example/jade.js)
