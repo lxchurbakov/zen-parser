@@ -1,7 +1,18 @@
 # Zen Parser
 
-## Exported Interface:
+## Usage
 
-`parse(source, config): AST`
+```
+  const zen = require('zen-parser');
 
-Takes the `source` text and the `config` and transforms it to `Abstract Syntax Tree`.
+  // Build a Stream Parser
+  const parser = zen.StreamParser(config);
+
+  // Push tokens to parser
+  parser.push('let');
+  parser.push('test');
+  parser.push('test');
+
+  // Pops all the tokens
+  parser.popAll();
+```
