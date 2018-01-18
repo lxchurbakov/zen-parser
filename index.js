@@ -134,9 +134,11 @@ const buildParser = (rules) => {
 const source = ['1', '+', '1', '*', '1'];
 
 const rules = [
+
+  // DIGIT TOKEN
   {
     match: (state, tape, index) => {
-      const {token} = tape.get(index);
+      const { token } = tape.get(index);
 
       return {
         match: token === '1' ? 'full' : 'none'
@@ -147,9 +149,10 @@ const rules = [
     },
   },
 
+  // + TOKEN
   {
     match: (state, tape, index) => {
-      const {token} = tape.get(index);
+      const { token } = tape.get(index);
 
       return {
         match: token === '+' ? 'full' : 'none'
@@ -160,9 +163,10 @@ const rules = [
     },
   },
 
+  // * TOKEN
   {
     match: (state, tape, index) => {
-      const {token} = tape.get(index);
+      const { token } = tape.get(index);
 
       return {
         match: token === '*' ? 'full' : 'none'
@@ -173,10 +177,10 @@ const rules = [
     },
   },
 
+  // EVERYTHING IS AN EXPRESSION
   {
     match: (state, tape, index) => {
-      // console.dir({ state, tape, index }, { depth: Infinity });
-      const {token} = tape.get(index);
+      const { token } = tape.get(index);
 
       return {
         match: token.type === 'digit' ? 'full' : 'none'
@@ -187,22 +191,13 @@ const rules = [
     },
   },
 
+  // DIGIT PLUS DIGIT
   {
     match: (state, tape, index) => {
-      // DIGIT PLUS DIGIT
 
-      const {token} = tape.get(index);
+      const { token } = tape.get(index);
       const next = tape.get(index + 1);
 
-      console.log();
-      console.log('DIGIT PLUS DIGIT CALL');
-      console.dir({ state, tape, index }, { depth: Infinity });
-      console.dir({ token, next }, { depth: Infinity });
-      console.log();
-
-      // console.log()
-      // console.log('match call', { state, token })
-      // console.log()
       const v = state.$v || 0;
 
       if (typeof(token) !== 'object') {
@@ -220,19 +215,16 @@ const rules = [
       }
     },
     wrap: (tape, index) => {
-      // console.log('wrap call');
       tape.replace(index - 2, 3, Tape.createItem({ type: 'expression', $sub: 'sum' }) )
     },
   },
 
+  // DIGIT MUL DIGIT
   {
     match: (state, tape, index) => {
-      const {token} = tape.get(index);
+      const { token } = tape.get(index);
       const next = tape.get(index + 1);
-      // DIGIT MUL DIGIT
-      // console.log()
-      // console.log('match call', { state, token })
-      // console.log()
+
       const v = state.$v || 0;
 
       if (typeof(token) !== 'object') {
@@ -254,16 +246,6 @@ const rules = [
       tape.replace(index - 2, 3, Tape.createItem({ type: 'expression', $sub: 'mul' }) )
     },
   },
-  // {
-  //   match: (state, token) => {
-  //     return {
-  //       match: token === '1' ? 'full' : 'none'
-  //     };
-  //   },
-  //   wrap: (tape, index) => {
-  //     return tape.slice(0, index).concat([ { token: 'shiet', $synced: false } ]).concat(tape.slice(index + 1))
-  //   },
-  // }
 ];
 
 const parser = buildParser(rules);
@@ -273,76 +255,3 @@ source.forEach(item => parser.push(item));
 parser.end()
 
 console.dir(parser.get(), { depth: Infinity });
-
-
-/**
- *
- */
-// Tape.prototype.sync = function () {
-//   // Find first unsynced element
-//   const firstUnsynced = this.firstUnsynced();
-//
-//   // Sync it
-//   this.sync(firstUnsynced);
-//
-//   // Look for matches
-//     // if found - we may wrap
-//       // if wrappable
-//         // wrap
-//           // mark unsynced and go again
-//     // if not found - there should be an error
-// };
-
-// /**
-//  * Sync on of the tape items
-//  *
-//  * Note that rule.match returns an object like { match: 'none/full/part', ..? }
-//  */
-
-//
-// /**
-//  * Update the tape (find applicable)
-//  */
-// Tape.prototype.update = function (index) {
-//   const item = this.$tape[index];
-//
-//   const matchedStates = sitem.state.map(({ match }, index) => ({ match, index })).filter(({ match }) => match != 'none');
-//
-//   if (matchedStates.length) {
-//     if (matchedStates[0].match === 'full') {
-//       // Let's wrap
-//       const ruleIndex = matchedStates[0].index;
-//       const rule = this.$rules[ruleIndex];
-//
-//       const state = item.state[ruleIndex];
-//
-//       this.$tape = rule.wrap(this.$tape, state);
-//     }
-//   } else {
-//     // There should be the error I think
-//   }
-// };
-//
-// Tape.prototype.wrap = function (index, ruleIndex) {
-//   const rule = this.$rules[ruleIndex];
-//   const item = this.$tape[index];
-//
-//   const state = item.state[ruleIndex];
-//
-//   this.$tape = rule.wrap(this.$tape, state);
-// };
-// /**
-//  * Update the tape (calculate valid state for every unsynced token)
-//  */
-// Tape.prototype.update = function () {
-//   const startIndex = this.$unupdated;
-//
-//   if (startIndex !== Infinity) {
-//     this.sync(startIndex);
-//
-//     // if (this.)
-//     if (this.)
-//
-//     this.$unupdated = Infinity;
-//   }
-// };
