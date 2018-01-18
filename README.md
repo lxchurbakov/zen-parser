@@ -19,3 +19,9 @@ Stream mode with caching:
 ## Examples
 
 [Jade](https://github.com/mcfinley/zen-parser/tree/master/example/jade.js)
+
+## TODO
+
+* Order
+* Do we need 2 or more lookahead in the front?
+* Add normal lookahead code - we need to call match on n-1 token
