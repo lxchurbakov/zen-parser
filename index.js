@@ -1,13 +1,11 @@
-const buildParser = require('./parser');
+const { buildParser, Tape } = require('./parser');
 
 const source = ['1', '+', '1', '*', '1'];
 
 const rules = [
   // DIGIT TOKEN
   {
-    match: (state, tape, index) => {
-      const { token } = tape.get(index);
-
+    match: (state, token, next) => {
       return {
         match: token === '1' ? 'full' : 'none'
       };
@@ -19,9 +17,7 @@ const rules = [
 
   // + TOKEN
   {
-    match: (state, tape, index) => {
-      const { token } = tape.get(index);
-
+    match: (state, token, next) => {
       return {
         match: token === '+' ? 'full' : 'none'
       };
@@ -33,9 +29,7 @@ const rules = [
 
   // * TOKEN
   {
-    match: (state, tape, index) => {
-      const { token } = tape.get(index);
-
+    match: (state, token, next) => {
       return {
         match: token === '*' ? 'full' : 'none'
       };
@@ -47,9 +41,7 @@ const rules = [
 
   // EVERYTHING IS AN EXPRESSION
   {
-    match: (state, tape, index) => {
-      const { token } = tape.get(index);
-
+    match: (state, token, next) => {
       return {
         match: token.type === 'digit' ? 'full' : 'none'
       };
@@ -61,19 +53,15 @@ const rules = [
 
   // DIGIT PLUS DIGIT
   {
-    match: (state, tape, index) => {
-
-      const { token } = tape.get(index);
-      const next = tape.get(index + 1);
-
+    match: (state, token, next) => {
       const v = state.$v || 0;
 
       if (typeof(token) !== 'object') {
         return { match: 'none', $v: 0 };
       } else {
-        if (token.type === 'expression' && v === 0 && !next) {
+        if (token.type === 'expression' && v === 0 && next) {
           return { match: 'part', $v: 1 };
-        } else if (token.type === 'plus' && v === 1 && !next) {
+        } else if (token.type === 'plus' && v === 1 && next) {
           return { match: 'part', $v: 2 };
         } else if (token.type === 'expression' && v === 2) {
           return { match: 'full', $v: 3 };
@@ -89,18 +77,15 @@ const rules = [
 
   // DIGIT MUL DIGIT
   {
-    match: (state, tape, index) => {
-      const { token } = tape.get(index);
-      const next = tape.get(index + 1);
-
+    match: (state, token, next) => {
       const v = state.$v || 0;
 
       if (typeof(token) !== 'object') {
         return { match: 'none', $v: 0 };
       } else {
-        if (token.type === 'expression' && v === 0 && !next) {
+        if (token.type === 'expression' && v === 0 && next) {
           return { match: 'part', $v: 1 };
-        } else if (token.type === 'mul' && v === 1 && !next) {
+        } else if (token.type === 'mul' && v === 1 && next) {
           return { match: 'part', $v: 2 };
         } else if (token.type === 'expression' && v === 2) {
           return { match: 'full', $v: 3 };
@@ -110,7 +95,6 @@ const rules = [
       }
     },
     wrap: (tape, index) => {
-      // console.log('wrap call');
       tape.replace(index - 2, 3, Tape.createItem({ type: 'expression', $sub: 'mul' }) )
     },
   },

@@ -1,8 +1,12 @@
 const Tape = function (rules) {
-  this.$tape      = [];
-  this.$rules     = rules;
+  this.$tape  = [];
+  this.$rules = rules;
+  this.$next  = null;
 };
 
+/**
+ * Create an Item from a Token
+ */
 Tape.createItem = (token) => {
   return { token, $synced: false };
 };
@@ -11,14 +15,20 @@ Tape.createItem = (token) => {
  * Push one token to the tape
  *
  * Note that we are pushing and ITEM that contains a TOKEN
+ * Also note that we are pushing delaying with one symbol. It is needed due to lookahead
  */
 Tape.prototype.push = function (token) {
-  this.$tape.push(Tape.createItem(token));
+  if (this.$next) this.$tape.push(this.$next);
+
+  this.$next = Tape.createItem(token);
 };
 
-Tape.prototype.end = function (token) {
-  this.$tape.push(Tape.createItem({ $end: true }));
-  this.$tape[this.$tape.length - 2].$synced = false;
+/**
+ * Finish the source
+ */
+Tape.prototype.end = function () {
+  this.$tape.push(this.$next);
+  this.$next = null;
 };
 
 /**
@@ -31,12 +41,13 @@ Tape.prototype.replace = function (from, count, tapePart) {
 /**
  * Find first unsynced element
  */
-Tape.prototype.firstUnsynced = function () {
+Tape.prototype.unsynced = function () {
   for (let i = 0; i < this.$tape.length; ++i) {
     const item = this.$tape[i];
 
-    if (!item.$synced)
+    if (!item.$synced) {
       return i;
+    }
   }
 
   return -1;
@@ -49,14 +60,12 @@ Tape.prototype.sync = function (index) {
   const item = this.$tape[index];
   const prev = index > 0 ? this.$tape[index - 1] : { state: (new Array(this.$rules.length).fill('@@init')) };
 
-  item.state = prev.state.map((state, i) => this.$rules[i].match(state, this, index));
+  item.state   = prev.state.map((state, i) => this.$rules[i].match(state, item.token, this.$next));
   item.$synced = true;
 };
 
 /**
  * Wrap the match if possible
- *
- *
  */
 Tape.prototype.wrap = function (index) {
   const item = this.$tape[index];
@@ -64,14 +73,13 @@ Tape.prototype.wrap = function (index) {
   const matchedStates = item.state.map((state, index) => ({ state, index })).filter(({ state }) => state.match != 'none');
 
   if (matchedStates.length > 0) {
+
     if (matchedStates[0].state.match === 'full') {
-      // Let's wrap
       const ruleIndex = matchedStates[0].index;
       const rule = this.$rules[ruleIndex];
 
       const state = item.state[ruleIndex];
 
-      // Rule wrap takes the tape and updates it
       rule.wrap(this, index, state);
 
       return true;
@@ -84,19 +92,24 @@ Tape.prototype.wrap = function (index) {
   }
 };
 
+/**
+ * Update the tape and wrap all possible rules
+ */
 Tape.prototype.update = function () {
   let wrapped;
 
   do {
-    const firstUnsynced = this.firstUnsynced();
 
-    this.sync(firstUnsynced);
-    wrapped = this.wrap(firstUnsynced);
+    const unsynced = this.unsynced();
+
+    if (unsynced > -1) {
+      this.sync(unsynced);
+      wrapped = this.wrap(unsynced);
+    } else {
+      wrapped = false;
+    }
+
   } while (wrapped);
-};
-
-Tape.prototype.get = function (index) {
-  return index > -1 && index < this.$tape.length ? this.$tape[index] : null
 };
 
 const buildParser = (rules) => {
@@ -119,4 +132,4 @@ const buildParser = (rules) => {
   return parser;
 };
 
-module.exports = buildParser;
+module.exports = { buildParser, Tape };
