@@ -1,4 +1,4 @@
-const { buildParser, Tape } = require('./parser');
+const { Parser, Sequence } = require('./lib/Parser');
 
 const source = ['1', '+', '1', '*', '1'];
 
@@ -11,7 +11,7 @@ const rules = [
       };
     },
     wrap: (tape, index) => {
-      tape.replace(index, 1, Tape.createItem({ type: 'digit' }) )
+      tape.replace(index, 1, new Sequence.Element({ type: 'digit' }) )
     },
   },
 
@@ -23,7 +23,7 @@ const rules = [
       };
     },
     wrap: (tape, index) => {
-      tape.replace(index, 1, Tape.createItem({ type: 'plus'}) )
+      tape.replace(index, 1, new Sequence.Element({ type: 'plus'}) )
     },
   },
 
@@ -35,7 +35,7 @@ const rules = [
       };
     },
     wrap: (tape, index) => {
-      tape.replace(index, 1, Tape.createItem({ type: 'mul'}) )
+      tape.replace(index, 1, new Sequence.Element({ type: 'mul'}) )
     },
   },
 
@@ -47,7 +47,7 @@ const rules = [
       };
     },
     wrap: (tape, index) => {
-      tape.replace(index, 1, Tape.createItem({ type: 'expression' }) )
+      tape.replace(index, 1, new Sequence.Element({ type: 'expression' }) )
     },
   },
 
@@ -71,7 +71,7 @@ const rules = [
       }
     },
     wrap: (tape, index) => {
-      tape.replace(index - 2, 3, Tape.createItem({ type: 'expression', $sub: 'sum' }) )
+      tape.replace(index - 2, 3, new Sequence.Element({ type: 'expression', $sub: 'sum' }) )
     },
   },
 
@@ -95,12 +95,12 @@ const rules = [
       }
     },
     wrap: (tape, index) => {
-      tape.replace(index - 2, 3, Tape.createItem({ type: 'expression', $sub: 'mul' }) )
+      tape.replace(index - 2, 3, new Sequence.Element({ type: 'expression', $sub: 'mul' }) )
     },
   },
 ];
 
-const parser = buildParser(rules);
+const parser = new Parser(rules);
 
 source.forEach(item => parser.push(item));
 
