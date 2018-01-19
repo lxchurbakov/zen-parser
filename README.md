@@ -13,6 +13,8 @@ TODO create usage example
 
 1. Make Element Match return index
 2. Remove rules from constructors
+3. Refactor more
+4. Create helpers
 
 ## Interfaces
 
@@ -27,7 +29,7 @@ Not done
 * get tree
 
 #### Parser
-s
+
 * push
 * end
 * get tree
@@ -35,7 +37,9 @@ s
 #### Tape
 
 `push(content): void` - pushes one element to the tape
+
 `end(): void` - finishes the tape
+
 `tree(): AST` - retrieve the AST
 
   * get tree
@@ -50,7 +54,11 @@ s
 Represents the atomic token on the tape with it's state for every rule.
 
 `content(): T` - retrieves `Element`'s content
+
 `state(): State` - retrieves `Element`'s state
+
 `synced(): boolean` - is the `Element` synced (state filled)
+
 `sync(rules, prev, next): void` - fill the state for this `Element`
+
 `match(): number` - get the first full/part match for this `Element`
