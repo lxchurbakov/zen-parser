@@ -11,7 +11,7 @@ const rules = [
       };
     },
     wrap: (tape, index) => {
-      tape.replace(index, 1, new StreamParser.Element({ type: 'digit' }) )
+      tape.replace(index, 1, { type: 'digit' } )
     },
   },
 
@@ -23,7 +23,7 @@ const rules = [
       };
     },
     wrap: (tape, index) => {
-      tape.replace(index, 1, new StreamParser.Element({ type: 'plus'}) )
+      tape.replace(index, 1, { type: 'plus'} )
     },
   },
 
@@ -35,7 +35,7 @@ const rules = [
       };
     },
     wrap: (tape, index) => {
-      tape.replace(index, 1, new StreamParser.Element({ type: 'mul'}) )
+      tape.replace(index, 1, { type: 'mul'} )
     },
   },
 
@@ -47,55 +47,55 @@ const rules = [
       };
     },
     wrap: (tape, index) => {
-      tape.replace(index, 1, new StreamParser.Element({ type: 'expression' }) )
+      tape.replace(index, 1, { type: 'expression' } )
     },
   },
 
   // DIGIT PLUS DIGIT
   {
     match: (state, token, next) => {
-      const v = state.$v || 0;
+      const v = state ? state.v : 0;
 
       if (typeof(token) !== 'object') {
-        return { match: 'none', $v: 0 };
+        return { match: 'none', v: 0 };
       } else {
         if (token.type === 'expression' && v === 0 && next) {
-          return { match: 'part', $v: 1 };
+          return { match: 'part', v: 1 };
         } else if (token.type === 'plus' && v === 1 && next) {
-          return { match: 'part', $v: 2 };
+          return { match: 'part', v: 2 };
         } else if (token.type === 'expression' && v === 2) {
-          return { match: 'full', $v: 3 };
+          return { match: 'full', v: 3 };
         } else {
-          return { match: 'none', $v: 0 };
+          return { match: 'none', v: 0 };
         }
       }
     },
     wrap: (tape, index) => {
-      tape.replace(index - 2, 3, new StreamParser.Element({ type: 'expression', $sub: 'sum' }) )
+      tape.replace(index - 2, 3, { type: 'expression', $sub: 'sum' } )
     },
   },
 
   // DIGIT MUL DIGIT
   {
     match: (state, token, next) => {
-      const v = state.$v || 0;
+      const v = state ? state.v : 0;
 
       if (typeof(token) !== 'object') {
-        return { match: 'none', $v: 0 };
+        return { match: 'none', v: 0 };
       } else {
         if (token.type === 'expression' && v === 0 && next) {
-          return { match: 'part', $v: 1 };
+          return { match: 'part', v: 1 };
         } else if (token.type === 'mul' && v === 1 && next) {
-          return { match: 'part', $v: 2 };
+          return { match: 'part', v: 2 };
         } else if (token.type === 'expression' && v === 2) {
-          return { match: 'full', $v: 3 };
+          return { match: 'full', v: 3 };
         } else {
-          return { match: 'none', $v: 0 };
+          return { match: 'none', v: 0 };
         }
       }
     },
     wrap: (tape, index) => {
-      tape.replace(index - 2, 3, new StreamParser.Element({ type: 'expression', $sub: 'mul' }) )
+      tape.replace(index - 2, 3, { type: 'expression', $sub: 'mul' } )
     },
   },
 ];
