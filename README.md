@@ -12,7 +12,7 @@ TODO create usage example
 ## TODO
 
 - [X] Make Element Match return index
-- [ ] Join Match methods to element
+- [X] Join Match methods to element
 - [ ] Remove rules from constructors
 - [ ] Refactor more
 - [ ] Create helpers
