@@ -11,12 +11,15 @@ TODO create usage example
 
 ## TODO
 
-1. Make Element Match return index
-2. Remove rules from constructors
-3. Refactor more
-4. Create helpers
+- [X] Make Element Match return index
+- [ ] Join Match methods to element
+- [ ] Remove rules from constructors
+- [ ] Refactor more
+- [ ] Create helpers
 
 ## Interfaces
+
+
 
 #### ClassicParser
 
