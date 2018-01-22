@@ -13,6 +13,7 @@ TODO create usage example
 
 - [X] Make Element Match return index
 - [X] Join Match methods to element
+- [ ] Better Abstraction levels
 - [ ] Remove rules from constructors
 - [ ] Refactor more
 - [ ] Create helpers
