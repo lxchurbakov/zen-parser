@@ -1,3 +1,5 @@
+// This example is out of date
+
 const zen = require('../index');
 
 const { match, change } = require('../lib/rules-helpers');
