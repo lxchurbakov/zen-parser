@@ -1,0 +1,12 @@
+{
+  "lex": {
+    "rules": [
+      ["\\d+",      "return 'number';"]
+    ]
+  },
+  "bnf": {
+    "expression": [
+      "number"
+    ]
+  }
+}
