@@ -8,9 +8,8 @@ const Situation = require('./lib/Situation');
 const grammar = new Grammar("E");
 
 // grammar.push(new Rule("E", ["E", "P", "E"]))
-grammar.push(new Rule("E", ["E", "M", "E"], 'mul'))
-grammar.push(new Rule("E", ["N"], 'test'))
-grammar.push(new Rule("E", ["E", "P", "E"], 'sum'))
+grammar.push(new Rule("E", ["A", "A"], 'test'))
+grammar.push(new Rule("A", ["B", "C"], 'test2'))
 
 // Create new state
 
