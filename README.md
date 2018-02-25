@@ -1,5 +1,22 @@
 # Zen Parser
 
+## Usage
+
+```
+const Zen = require('zen-parser');
+
+const lexer = Zen.createStreamLexer(options);
+const parser = Zen.createStreamParser(options);
+const walker = Zen.createStreamWalker(options);
+
+someStringStream
+  .pipe(lexer)
+  .pipe(parser)
+  .pipe(walker)
+  .pipe(someDestinationForAST)
+
+```
+
 ## TODO
 
 - [X] Проверить что все состояния формируются правильно

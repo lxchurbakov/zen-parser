@@ -1,58 +1,57 @@
-const State = require('./lib/State');
-const Grammar = require('./lib/Grammar');
-const Rule = require('./lib/Rule');
-const Situation = require('./lib/Situation');
-const StatesManager = require('./lib/StatesManager');
-// Create a Grammar and add rules
+const Transform = require('stream').Transform;
+const Lexer = require("./lib/lexer");
 
-const grammar = new Grammar("E");
+const Zen = {};
 
-grammar.push(new Rule("E", ["E", "M", "E"], 'mul'));
-grammar.push(new Rule("E", ["E", "P", "E"], 'sum'));
-grammar.push(new Rule("E", ["N"], 'ez'));
+/**
+ *
+ */
+Zen.createStreamLexer = function (options) {
+  const lexer = new Lexer(options.lexer);
+  const source = "";
 
-/* */
-
-const statesManager = new StatesManager();
-
-statesManager.push(new State(new Situation(grammar.getBaseRule())));
-
-while (statesManager.hasUnparsed()) {
-  const i = statesManager.getUnparsed();
-  const state = statesManager.get(i);
-
-  state.expand(grammar);
-
-  console.log();
-  console.log('state #', i);
-
-  const tokens = state.getNextTokens();
-
-  Object.keys(tokens).forEach(token => {
-    const usages = tokens[token];
-
-    usages.forEach(usage => {
-      if (usage.reduce) {
-        console.log('on', token, 'reduce', usage.reduce);
-      }
-
-      if (usage.shift) {
-        console.log('on', token, 'shift');
-
-        const newState = state.filter(token).step();
-        const a = statesManager.getSame(newState);
-
-        if (a === -1) {
-          statesManager.push(newState);
-          console.log('to', statesManager.count() - 1);
-        } else {
-          console.log('to', a)
-        }
-      }
-    });
+  return new Transform({
+    transform: function (chunk, encoding, cb) {
+      source = source + chunk;
+      const lexems = getLexems(source);
+      lexems.forEach(lexem => this.push(lexem));
+      cb();
+    },
+    flush: function (cb) {
+      const lexems = getLexems(source);
+      lexems.forEach(lexem => this.push(lexem));
+      cb();
+    }
   });
+};
 
-  state.$parsed = true;
+Zen.createStreamParser = function (options) {
+  const source = "";
 
-  console.log();
-}
+  return new Transform({
+    transform: function (lexem, encoding, cb) {
+
+      cb();
+    },
+  });
+};
+
+Zen.createParserSource = function (options) {
+  return "not implemented yet";
+};
+
+module.exports = Zen;
+
+
+const someTransformStream = new Transform({
+  /* Функция-трансформатор */
+  transform: function (chunk, encoding, cb) {
+    /* что-то делаем с чанком (преобразуем его как-либо) */
+    this.push(chunk); // да, здесь this.push не форсит вызов следующих обработчиков
+    cb();
+  },
+  /* Также есть функция, которая вызовется, когда закроется поток с которого мы считываем чанки или будет вызван flush() вручную
+  flush: function (cb) {
+    /* Здесь можно сделать что-либо */
+  }
+});
