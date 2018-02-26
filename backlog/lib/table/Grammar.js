@@ -1,5 +1,6 @@
-const Token = require('./Token');
 const { find } = require('./helpers');
+
+const Token = require('./Token');
 const Rule = require('./Rule');
 
 class Grammar {
