@@ -1,16 +1,4 @@
-/**
- *
- *
- *
- */
-const rules = require('./rules');
+const Lexer  = require("./lib/Lexer");
+const Parser = require("./lib/Parser");
 
-const createTable = function (rules) {
-  return [
-    'default': {
-      
-    }
-  ];
-};
-
-// console.log(create)
+module.exports = { Lexer, Parser };
