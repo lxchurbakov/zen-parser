@@ -29,3 +29,7 @@ console.log(tree);
 console.log(parser.getTable());
 
 ```
+
+## Performance
+
+265 * 1000 lexems = 22439 mss

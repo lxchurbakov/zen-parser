@@ -1,0 +1,508 @@
+Statistical profiling result from isolate-0x2f10e60-v8.log, (1174 ticks, 26 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+     74    6.3%          /lib/x86_64-linux-gnu/libpthread-2.23.so
+      4    0.3%          /lib/x86_64-linux-gnu/libc-2.23.so
+      1    0.1%          /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+      1    0.1%          /lib/x86_64-linux-gnu/ld-2.23.so
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+    104    8.9%    9.5%  LazyCompile: *DoJoin native array.js:94:16
+     95    8.1%    8.7%  Builtin: ToString
+     90    7.7%    8.2%  LazyCompile: *ConvertToString native array.js:132:25
+     53    4.5%    4.8%  Builtin: GrowFastSmiOrObjectElements
+     51    4.3%    4.7%  Stub: InternalArraySingleArgumentConstructorStub
+     15    1.3%    1.4%  LazyCompile: ~ConvertToString native array.js:132:25
+     12    1.0%    1.1%  Builtin: InterpreterEntryTrampoline
+      8    0.7%    0.7%  Builtin: StringEqual
+      8    0.7%    0.7%  Builtin: FastArrayPush
+      5    0.4%    0.5%  LazyCompile: ~formatValue util.js:400:21
+      4    0.3%    0.4%  LazyCompile: ~formatProperty util.js:832:24
+      3    0.3%    0.3%  Builtin: CallFunction_ReceiverIsAny
+      2    0.2%    0.2%  LazyCompile: ~strEscape util.js:113:19
+      2    0.2%    0.2%  LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      2    0.2%    0.2%  LazyCompile: ~getConstructorOf internal/util.js:186:26
+      2    0.2%    0.2%  LazyCompile: ~find.resolve.rule /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:31:64
+      2    0.2%    0.2%  LazyCompile: ~InnerArrayJoin native array.js:274:24
+      2    0.2%    0.2%  Builtin: StringGreaterThan
+      2    0.2%    0.2%  Builtin: ArrayIndexOf
+      1    0.1%    0.1%  StoreIC: A store IC from the snapshot
+      1    0.1%    0.1%  RegExp: ^(\\))
+      1    0.1%    0.1%  LazyCompile: ~rule /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:31:17
+      1    0.1%    0.1%  LazyCompile: ~resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      1    0.1%    0.1%  LazyCompile: ~repeat native string.js:91:7
+      1    0.1%    0.1%  LazyCompile: ~regExpMatch /home/mcfinley/projects/current/zen-parser/lib/Lexer.js:8:21
+      1    0.1%    0.1%  LazyCompile: ~reduceToSingleString util.js:868:30
+      1    0.1%    0.1%  LazyCompile: ~match /home/mcfinley/projects/current/zen-parser/examples/calc.js:12:31
+      1    0.1%    0.1%  LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+      1    0.1%    0.1%  LazyCompile: ~join native array.js:287:46
+      1    0.1%    0.1%  LazyCompile: ~getMatch /home/mcfinley/projects/current/zen-parser/lib/Lexer.js:10:18
+      1    0.1%    0.1%  LazyCompile: ~formatArray util.js:726:21
+      1    0.1%    0.1%  LazyCompile: ~equal /home/mcfinley/projects/current/zen-parser/lib/helpers/rich.js:50:15
+      1    0.1%    0.1%  LazyCompile: ~doesRegExpMatch /home/mcfinley/projects/current/zen-parser/lib/Lexer.js:9:25
+      1    0.1%    0.1%  LazyCompile: ~createTable /home/mcfinley/projects/current/zen-parser/lib/parser/create-table.js:90:21
+      1    0.1%    0.1%  LazyCompile: ~burnMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:21:21
+      1    0.1%    0.1%  LazyCompile: ~UseSparseVariant native array.js:61:26
+      1    0.1%    0.1%  LazyCompile: ~StackHas native array.js:85:18
+      1    0.1%    0.1%  LazyCompile: ~Join native array.js:119:14
+      1    0.1%    0.1%  LazyCompile: ~InsertionSort native array.js:542:23
+      1    0.1%    0.1%  LazyCompile: ~Array.all /home/mcfinley/projects/current/zen-parser/lib/helpers/rich.js:95:32
+      1    0.1%    0.1%  LazyCompile: *rule /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:31:17
+      1    0.1%    0.1%  LazyCompile: *repeat native string.js:91:7
+      1    0.1%    0.1%  LazyCompile: *reduceToSingleString util.js:868:30
+      1    0.1%    0.1%  KeyedLoadIC: A keyed load IC from the snapshot
+      1    0.1%    0.1%  Builtin: StringLessThan
+      1    0.1%    0.1%  Builtin: KeyedStoreIC_Megamorphic_Strict
+      1    0.1%    0.1%  Builtin: KeyedLoadIC_Megamorphic
+      1    0.1%    0.1%  Builtin: CompileLazy
+      1    0.1%    0.1%  Builtin: Call_ReceiverIsNullOrUndefined
+      1    0.1%    0.1%  Builtin: ArgumentsAdaptorTrampoline
+
+ [C++]:
+   ticks  total  nonlib   name
+    143   12.2%   13.1%  void v8::internal::String::WriteToFlat<unsigned char>(v8::internal::String*, unsigned char*, int, int)
+    128   10.9%   11.7%  v8::internal::Runtime_StringBuilderConcat(int, v8::internal::Object**, v8::internal::Isolate*)
+     78    6.6%    7.1%  v8::internal::(anonymous namespace)::CopyObjectToObjectElements(v8::internal::FixedArrayBase*, v8::internal::ElementsKind, unsigned int, v8::internal::FixedArrayBase*, v8::internal::ElementsKind, unsigned int, int)
+     46    3.9%    4.2%  v8::internal::Heap::AllocateFixedArrayWithFiller(int, v8::internal::PretenureFlag, v8::internal::Object*)
+     40    3.4%    3.7%  void node::StreamBase::JSMethod<node::LibuvStreamWrap, &(int node::StreamBase::WriteString<(node::encoding)1>(v8::FunctionCallbackInfo<v8::Value> const&))>(v8::FunctionCallbackInfo<v8::Value> const&)
+     28    2.4%    2.6%  node::(anonymous namespace)::ContextifyScript::New(v8::FunctionCallbackInfo<v8::Value> const&)
+     13    1.1%    1.2%  syscall
+      6    0.5%    0.5%  v8::internal::IncrementalMarking::Step(unsigned long, v8::internal::IncrementalMarking::CompletionAction, v8::internal::IncrementalMarking::ForceCompletionAction, v8::internal::StepOrigin)
+      5    0.4%    0.5%  do_futex_wait.constprop.3
+      4    0.3%    0.4%  v8::internal::Scavenger::ScavengeObject(v8::internal::HeapObject**, v8::internal::HeapObject*)
+      4    0.3%    0.4%  v8::internal::Builtin_Impl_ArraySlice(v8::internal::BuiltinArguments, v8::internal::Isolate*)
+      4    0.3%    0.4%  v8::internal::Bitmap::Clear()
+      3    0.3%    0.3%  v8::internal::SemiSpace::FixPagesFlags(long, long)
+      3    0.3%    0.3%  v8::internal::Scavenger::Process(v8::internal::Scavenger::Barrier*)
+      2    0.2%    0.2%  v8::internal::ScavengeWeakObjectRetainer::RetainAs(v8::internal::Object*)
+      2    0.2%    0.2%  v8::internal::PageScavengingItem::Process(v8::internal::Scavenger*)
+      2    0.2%    0.2%  v8::internal::NewSpace::UpdateAllocationInfo()
+      2    0.2%    0.2%  v8::internal::IncrementalMarking::WhiteToGreyAndPush(v8::internal::HeapObject*)
+      2    0.2%    0.2%  v8::internal::Heap::Scavenge()
+      2    0.2%    0.2%  v8::internal::Heap::AllocateRaw(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment)
+      2    0.2%    0.2%  node::Binding(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.1%    0.1%  vsnprintf
+      1    0.1%    0.1%  void v8::internal::BodyDescriptorBase::IteratePointers<v8::internal::IncrementalMarkingMarkingVisitor>(v8::internal::HeapObject*, int, int, v8::internal::IncrementalMarkingMarkingVisitor*)
+      1    0.1%    0.1%  v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterTransfer(v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterInfo*, v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterInfo*)
+      1    0.1%    0.1%  v8::internal::interpreter::BytecodeGenerator::VisitForAccumulatorValue(v8::internal::Expression*)
+      1    0.1%    0.1%  v8::internal::interpreter::BytecodeGenerator::BuildVariableLoad(v8::internal::Variable*, v8::internal::FeedbackSlot, v8::internal::HoleCheckMode, v8::internal::TypeofMode)
+      1    0.1%    0.1%  v8::internal::compiler::TypedOptimization::Reduce(v8::internal::compiler::Node*)
+      1    0.1%    0.1%  v8::internal::compiler::JSTypedLowering::ReduceJSLoadContext(v8::internal::compiler::Node*)
+      1    0.1%    0.1%  v8::internal::compiler::JSCreateLowering::Reduce(v8::internal::compiler::Node*)
+      1    0.1%    0.1%  v8::internal::compiler::GraphReducer::Reduce(v8::internal::compiler::Node*)
+      1    0.1%    0.1%  v8::internal::VariableProxy::VariableProxy(v8::internal::Variable*, int)
+      1    0.1%    0.1%  v8::internal::Space::AllocationStep(unsigned char*, int)
+      1    0.1%    0.1%  v8::internal::Scavenger::EvacuateShortcutCandidate(v8::internal::Map*, v8::internal::HeapObject**, v8::internal::ConsString*, int)
+      1    0.1%    0.1%  v8::internal::Scanner::Next()
+      1    0.1%    0.1%  v8::internal::Runtime_EstimateNumberOfElements(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.1%  v8::internal::RootScavengeVisitor::VisitRootPointers(v8::internal::Root, v8::internal::Object**, v8::internal::Object**)
+      1    0.1%    0.1%  v8::internal::RootScavengeVisitor::VisitRootPointer(v8::internal::Root, v8::internal::Object**)
+      1    0.1%    0.1%  v8::internal::RegExpParser::Advance()
+      1    0.1%    0.1%  v8::internal::RecordMigratedSlotVisitor::RecordMigratedSlot(v8::internal::HeapObject*, v8::internal::Object*, unsigned char*)
+      1    0.1%    0.1%  v8::internal::ParserBase<v8::internal::PreParser>::ParseConditionalExpression(bool, bool*)
+      1    0.1%    0.1%  v8::internal::ParserBase<v8::internal::Parser>::ParseConditionalExpression(bool, bool*)
+      1    0.1%    0.1%  v8::internal::Object* v8::internal::VisitWeakList<v8::internal::JSFunction>(v8::internal::Heap*, v8::internal::Object*, v8::internal::WeakObjectRetainer*)
+      1    0.1%    0.1%  v8::internal::MemoryChunk::Initialize(v8::internal::Heap*, unsigned char*, unsigned long, unsigned char*, unsigned char*, v8::internal::Executability, v8::internal::Space*, v8::base::VirtualMemory*)
+      1    0.1%    0.1%  v8::internal::MapUpdater::BuildDescriptorArray()
+      1    0.1%    0.1%  v8::internal::LookupIterator::PropertyOrElement(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::Object>, bool*, v8::internal::LookupIterator::Configuration)
+      1    0.1%    0.1%  v8::internal::LookupIterator::GetDataValue() const
+      1    0.1%    0.1%  v8::internal::LocalAllocator::Allocate(v8::internal::AllocationSpace, int, v8::internal::AllocationAlignment)
+      1    0.1%    0.1%  v8::internal::LayoutDescriptor::New(v8::internal::Handle<v8::internal::Map>, v8::internal::Handle<v8::internal::DescriptorArray>, int)
+      1    0.1%    0.1%  v8::internal::KeyAccumulator::GetKeys(v8::internal::Handle<v8::internal::JSReceiver>, v8::internal::KeyCollectionMode, v8::internal::PropertyFilter, v8::internal::GetKeysConversion, bool)
+      1    0.1%    0.1%  v8::internal::JSReceiver::GetPropertyAttributes(v8::internal::LookupIterator*)
+      1    0.1%    0.1%  v8::internal::JSObject::AddDataElement(v8::internal::Handle<v8::internal::JSObject>, unsigned int, v8::internal::Handle<v8::internal::Object>, v8::internal::PropertyAttributes, v8::internal::Object::ShouldThrow)
+      1    0.1%    0.1%  v8::internal::JSArray::HasReadOnlyLength(v8::internal::Handle<v8::internal::JSArray>)
+      1    0.1%    0.1%  v8::internal::InnerPointerToCodeCache::GetCacheEntry(unsigned char*)
+      1    0.1%    0.1%  v8::internal::Heap::YoungGenerationMutatorUtilization()
+      1    0.1%    0.1%  v8::internal::Heap::InitializeJSObjectBody(v8::internal::JSObject*, v8::internal::Map*, int)
+      1    0.1%    0.1%  v8::internal::Heap::CreateFillerObjectAt(unsigned char*, int, v8::internal::ClearRecordedSlots)
+      1    0.1%    0.1%  v8::internal::Heap::AllocateJSObjectFromMap(v8::internal::Map*, v8::internal::PretenureFlag, v8::internal::AllocationSite*)
+      1    0.1%    0.1%  v8::internal::HashTable<v8::internal::StringTable, v8::internal::StringTableShape>::Rehash()
+      1    0.1%    0.1%  v8::internal::GCTracer::CurrentAllocationThroughputInBytesPerMillisecond() const
+      1    0.1%    0.1%  v8::internal::FreeList::FindNodeIn(v8::internal::FreeListCategoryType, unsigned long*)
+      1    0.1%    0.1%  v8::internal::FixStaleLeftTrimmedHandlesVisitor::VisitRootPointers(v8::internal::Root, v8::internal::Object**, v8::internal::Object**)
+      1    0.1%    0.1%  v8::internal::Factory::NewUninitializedFixedArray(int)
+      1    0.1%    0.1%  v8::internal::Factory::NewJSArrayStorage(v8::internal::Handle<v8::internal::JSArray>, int, int, v8::internal::ArrayStorageAllocationMode)
+      1    0.1%    0.1%  v8::internal::Factory::NewJSArray(v8::internal::ElementsKind, int, int, v8::internal::ArrayStorageAllocationMode, v8::internal::PretenureFlag)
+      1    0.1%    0.1%  v8::internal::Deserializer::ReadObject(int, v8::internal::Object**)
+      1    0.1%    0.1%  v8::internal::DeclarationScope::AnalyzePartially(v8::internal::AstNodeFactory*)
+      1    0.1%    0.1%  v8::internal::ContextSlotCache::Lookup(v8::internal::Object*, v8::internal::String*, v8::internal::VariableMode*, v8::internal::InitializationFlag*, v8::internal::MaybeAssignedFlag*)
+      1    0.1%    0.1%  v8::internal::Builtin_ArrayUnshift(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.1%    0.1%  v8::internal::Assembler::jmp(v8::internal::Label*, v8::internal::Label::Distance)
+      1    0.1%    0.1%  v8::internal::(anonymous namespace)::PrepareElementsForSort(v8::internal::Handle<v8::internal::JSObject>, unsigned int)
+      1    0.1%    0.1%  strchrnul
+      1    0.1%    0.1%  std::vector<v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterInfo*, v8::internal::ZoneAllocator<v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterInfo*> >::_M_default_append(unsigned long)
+      1    0.1%    0.1%  node::inspector::Agent::Agent(node::Environment*)
+      1    0.1%    0.1%  mmap
+      1    0.1%    0.1%  __pthread_cond_signal
+      1    0.1%    0.1%  _IO_vfprintf
+      1    0.1%    0.1%  _IO_setb
+
+ [Summary]:
+   ticks  total  nonlib   name
+    493   42.0%   45.1%  JavaScript
+    575   49.0%   52.6%  C++
+     48    4.1%    4.4%  GC
+     80    6.8%          Shared libraries
+     26    2.2%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+    271   53.0%   23.1%  v8::internal::Runtime_StringBuilderConcat(int, v8::internal::Object**, v8::internal::Isolate*)
+    124   24.3%   10.6%  v8::internal::Builtin_ArraySlice(int, v8::internal::Object**, v8::internal::Isolate*)
+     70   13.7%    6.0%  v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+     13    2.5%    1.1%  v8::internal::Runtime_CompileLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+      6    1.2%    0.5%  v8::internal::Runtime_CompileOptimized_Concurrent(int, v8::internal::Object**, v8::internal::Isolate*)
+      5    1.0%    0.4%  v8::internal::Builtin_ArrayUnshift(int, v8::internal::Object**, v8::internal::Isolate*)
+      4    0.8%    0.3%  v8::internal::Builtin_ArrayConcat(int, v8::internal::Object**, v8::internal::Isolate*)
+      3    0.6%    0.3%  v8::internal::Builtin_ObjectGetOwnPropertyDescriptor(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.4%    0.2%  v8::internal::Runtime_AllocateInNewSpace(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.4%    0.2%  v8::internal::Builtin_ArraySplice(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.2%    0.1%  v8::internal::Runtime_StoreIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.2%    0.1%  v8::internal::Runtime_RemoveArrayHoles(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.2%    0.1%  v8::internal::Runtime_RegExpInitializeAndCompile(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.2%    0.1%  v8::internal::Runtime_LoadGlobalIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.2%    0.1%  v8::internal::Runtime_KeyedStoreIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.2%    0.1%  v8::internal::Runtime_EstimateNumberOfElements(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.2%    0.1%  v8::internal::Runtime_CreateDataProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.2%    0.1%  v8::internal::Runtime_CreateArrayLiteral(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.2%    0.1%  v8::internal::Builtin_ObjectGetOwnPropertySymbols(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.2%    0.1%  v8::internal::Builtin_JsonParse(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.2%    0.1%  v8::internal::Builtin_Impl_ArraySlice(v8::internal::BuiltinArguments, v8::internal::Isolate*)
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+    143   12.2%  void v8::internal::String::WriteToFlat<unsigned char>(v8::internal::String*, unsigned char*, int, int)
+    143  100.0%    v8::internal::Runtime_StringBuilderConcat(int, v8::internal::Object**, v8::internal::Isolate*)
+    143  100.0%      LazyCompile: *DoJoin native array.js:94:16
+    140   97.9%        LazyCompile: *Join native array.js:119:14
+    104   74.3%          LazyCompile: *InnerArrayJoin native array.js:274:24
+    104  100.0%            LazyCompile: *join native array.js:287:46
+     36   25.7%          LazyCompile: ~InnerArrayJoin native array.js:274:24
+     26   72.2%            LazyCompile: ~join native array.js:287:46
+     10   27.8%            LazyCompile: *join native array.js:287:46
+      3    2.1%        LazyCompile: ~Join native array.js:119:14
+      3  100.0%          LazyCompile: ~InnerArrayJoin native array.js:274:24
+      3  100.0%            LazyCompile: ~join native array.js:287:46
+
+    128   10.9%  v8::internal::Runtime_StringBuilderConcat(int, v8::internal::Object**, v8::internal::Isolate*)
+    126   98.4%    v8::internal::Runtime_StringBuilderConcat(int, v8::internal::Object**, v8::internal::Isolate*)
+    124   98.4%      LazyCompile: *DoJoin native array.js:94:16
+    120   96.8%        LazyCompile: *Join native array.js:119:14
+     80   66.7%          LazyCompile: *InnerArrayJoin native array.js:274:24
+     80  100.0%            LazyCompile: *join native array.js:287:46
+     40   33.3%          LazyCompile: ~InnerArrayJoin native array.js:274:24
+     33   82.5%            LazyCompile: ~join native array.js:287:46
+      7   17.5%            LazyCompile: *join native array.js:287:46
+      4    3.2%        LazyCompile: ~Join native array.js:119:14
+      4  100.0%          LazyCompile: ~InnerArrayJoin native array.js:274:24
+      4  100.0%            LazyCompile: ~join native array.js:287:46
+      2    1.6%      LazyCompile: ~DoJoin native array.js:94:16
+      2  100.0%        LazyCompile: ~Join native array.js:119:14
+      2  100.0%          LazyCompile: ~InnerArrayJoin native array.js:274:24
+      2  100.0%            LazyCompile: ~join native array.js:287:46
+      2    1.6%    LazyCompile: *InnerArrayJoin native array.js:274:24
+      2  100.0%      v8::internal::Runtime_StringBuilderConcat(int, v8::internal::Object**, v8::internal::Isolate*)
+      2  100.0%        LazyCompile: *DoJoin native array.js:94:16
+      2  100.0%          LazyCompile: *Join native array.js:119:14
+      2  100.0%            LazyCompile: *InnerArrayJoin native array.js:274:24
+
+    104    8.9%  LazyCompile: *DoJoin native array.js:94:16
+    101   97.1%    LazyCompile: *Join native array.js:119:14
+     63   62.4%      LazyCompile: *InnerArrayJoin native array.js:274:24
+     63  100.0%        LazyCompile: *join native array.js:287:46
+     28   44.4%          LazyCompile: *machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+     28  100.0%            LazyCompile: ~InsertionSort native array.js:542:23
+     22   34.9%          LazyCompile: ~machines.filter.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:76:34
+     22  100.0%            Builtin: ArrayFilter
+      9   14.3%          LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      9  100.0%            LazyCompile: ~fromLexems /home/mcfinley/projects/current/zen-parser/lib/Parser.js:29:14
+      4    6.3%          LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+      4  100.0%            LazyCompile: ~InsertionSort native array.js:542:23
+     38   37.6%      LazyCompile: ~InnerArrayJoin native array.js:274:24
+     29   76.3%        LazyCompile: ~join native array.js:287:46
+     17   58.6%          LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+     17  100.0%            LazyCompile: ~InsertionSort native array.js:542:23
+      7   24.1%          LazyCompile: ~machines.filter.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:76:34
+      7  100.0%            Builtin: ArrayFilter
+      5   17.2%          LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      5  100.0%            LazyCompile: ~fromLexems /home/mcfinley/projects/current/zen-parser/lib/Parser.js:29:14
+      9   23.7%        LazyCompile: *join native array.js:287:46
+      4   44.4%          LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+      4  100.0%            LazyCompile: ~InsertionSort native array.js:542:23
+      3   33.3%          LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      3  100.0%            LazyCompile: ~fromLexems /home/mcfinley/projects/current/zen-parser/lib/Parser.js:29:14
+      2   22.2%          LazyCompile: ~machines.filter.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:76:34
+      2  100.0%            Builtin: ArrayFilter
+      3    2.9%    LazyCompile: ~Join native array.js:119:14
+      3  100.0%      LazyCompile: ~InnerArrayJoin native array.js:274:24
+      3  100.0%        LazyCompile: ~join native array.js:287:46
+      2   66.7%          LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+      2  100.0%            LazyCompile: ~InsertionSort native array.js:542:23
+      1   33.3%          LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      1  100.0%            LazyCompile: ~fromLexems /home/mcfinley/projects/current/zen-parser/lib/Parser.js:29:14
+
+     95    8.1%  Builtin: ToString
+     93   97.9%    LazyCompile: *ConvertToString native array.js:132:25
+     93  100.0%      LazyCompile: *DoJoin native array.js:94:16
+     87   93.5%        LazyCompile: *Join native array.js:119:14
+     56   64.4%          LazyCompile: *InnerArrayJoin native array.js:274:24
+     56  100.0%            LazyCompile: *join native array.js:287:46
+     31   35.6%          LazyCompile: ~InnerArrayJoin native array.js:274:24
+     19   61.3%            LazyCompile: ~join native array.js:287:46
+     12   38.7%            LazyCompile: *join native array.js:287:46
+      6    6.5%        LazyCompile: ~Join native array.js:119:14
+      6  100.0%          LazyCompile: ~InnerArrayJoin native array.js:274:24
+      6  100.0%            LazyCompile: ~join native array.js:287:46
+      2    2.1%    LazyCompile: ~ConvertToString native array.js:132:25
+      2  100.0%      LazyCompile: *DoJoin native array.js:94:16
+      2  100.0%        LazyCompile: ~Join native array.js:119:14
+      2  100.0%          LazyCompile: ~InnerArrayJoin native array.js:274:24
+      2  100.0%            LazyCompile: ~join native array.js:287:46
+
+     90    7.7%  LazyCompile: *ConvertToString native array.js:132:25
+     90  100.0%    LazyCompile: *DoJoin native array.js:94:16
+     87   96.7%      LazyCompile: *Join native array.js:119:14
+     63   72.4%        LazyCompile: *InnerArrayJoin native array.js:274:24
+     63  100.0%          LazyCompile: *join native array.js:287:46
+     37   58.7%            LazyCompile: *machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+     20   31.7%            LazyCompile: ~machines.filter.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:76:34
+      3    4.8%            LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      3    4.8%            LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+     24   27.6%        LazyCompile: ~InnerArrayJoin native array.js:274:24
+     17   70.8%          LazyCompile: ~join native array.js:287:46
+      9   52.9%            LazyCompile: ~machines.filter.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:76:34
+      7   41.2%            LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+      1    5.9%            LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      7   29.2%          LazyCompile: *join native array.js:287:46
+      4   57.1%            LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+      2   28.6%            LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      1   14.3%            LazyCompile: ~machines.filter.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:76:34
+      3    3.3%      LazyCompile: ~Join native array.js:119:14
+      3  100.0%        LazyCompile: ~InnerArrayJoin native array.js:274:24
+      3  100.0%          LazyCompile: ~join native array.js:287:46
+      2   66.7%            LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+      1   33.3%            LazyCompile: ~machines.filter.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:76:34
+
+     78    6.6%  v8::internal::(anonymous namespace)::CopyObjectToObjectElements(v8::internal::FixedArrayBase*, v8::internal::ElementsKind, unsigned int, v8::internal::FixedArrayBase*, v8::internal::ElementsKind, unsigned int, int)
+     73   93.6%    v8::internal::Builtin_ArraySlice(int, v8::internal::Object**, v8::internal::Isolate*)
+     44   60.3%      LazyCompile: *shifts.forEach.shift /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:42:18
+     44  100.0%        Builtin: ArrayForEach
+     30   68.2%          LazyCompile: ~burnMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:21:21
+     30  100.0%            LazyCompile: ~machines.forEach.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:66:22
+     12   27.3%          LazyCompile: *machines.forEach.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:66:22
+     12  100.0%            Builtin: ArrayForEach
+      2    4.5%          LazyCompile: *burnMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:21:21
+      2  100.0%            LazyCompile: ~machines.forEach.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:66:22
+     14   19.2%      LazyCompile: ~cloneMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:4:22
+      8   57.1%        LazyCompile: ~shifts.forEach.shift /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:42:18
+      8  100.0%          Builtin: ArrayForEach
+      8  100.0%            LazyCompile: ~burnMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:21:21
+      6   42.9%        LazyCompile: ~find.resolve.rule /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:31:64
+      6  100.0%          LazyCompile: ~resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      6  100.0%            LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+     11   15.1%      LazyCompile: *cloneMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:4:22
+     11  100.0%        LazyCompile: ~find.resolve.rule /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:31:64
+     11  100.0%          LazyCompile: ~resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+     11  100.0%            LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+      4    5.5%      LazyCompile: *find.resolve.rule /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:31:64
+      3   75.0%        LazyCompile: ~resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      3  100.0%          LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+      3  100.0%            Builtin: ArrayForEach
+      1   25.0%        LazyCompile: *resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      1  100.0%          LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+      1  100.0%            Builtin: ArrayForEach
+      4    5.1%    v8::internal::Builtin_ArrayConcat(int, v8::internal::Object**, v8::internal::Isolate*)
+      4  100.0%      LazyCompile: ~find.resolve.lexem /home/mcfinley/projects/current/zen-parser/lib/Lexer.js:25:81
+      4  100.0%        LazyCompile: ~resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      4  100.0%          LazyCompile: ~until /home/mcfinley/projects/current/zen-parser/lib/Lexer.js:24:7
+      4  100.0%            LazyCompile: ~until /home/mcfinley/projects/current/zen-parser/lib/helpers/rich.js:7:15
+      1    1.3%    v8::internal::Builtin_ArrayUnshift(int, v8::internal::Object**, v8::internal::Isolate*)
+      1  100.0%      LazyCompile: ~find.resolve.rule /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:31:64
+      1  100.0%        LazyCompile: ~resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      1  100.0%          LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+      1  100.0%            Builtin: ArrayForEach
+
+     74    6.3%  /lib/x86_64-linux-gnu/libpthread-2.23.so
+
+     53    4.5%  Builtin: GrowFastSmiOrObjectElements
+     50   94.3%    LazyCompile: *shifts.forEach.shift /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:42:18
+     50  100.0%      Builtin: ArrayForEach
+     29   58.0%        LazyCompile: ~burnMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:21:21
+     29  100.0%          LazyCompile: ~machines.forEach.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:66:22
+     29  100.0%            Builtin: ArrayForEach
+     14   28.0%        LazyCompile: *machines.forEach.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:66:22
+     14  100.0%          Builtin: ArrayForEach
+     14  100.0%            LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      7   14.0%        LazyCompile: *burnMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:21:21
+      7  100.0%          LazyCompile: ~machines.forEach.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:66:22
+      7  100.0%            Builtin: ArrayForEach
+      3    5.7%    LazyCompile: *find.resolve.rule /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:31:64
+      2   66.7%      LazyCompile: ~resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      2  100.0%        LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+      2  100.0%          Builtin: ArrayForEach
+      2  100.0%            LazyCompile: *machines.forEach.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:66:22
+      1   33.3%      LazyCompile: *resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      1  100.0%        LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+      1  100.0%          Builtin: ArrayForEach
+      1  100.0%            LazyCompile: *machines.forEach.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:66:22
+
+     51    4.3%  Stub: InternalArraySingleArgumentConstructorStub
+     51  100.0%    LazyCompile: *DoJoin native array.js:94:16
+     48   94.1%      LazyCompile: *Join native array.js:119:14
+     32   66.7%        LazyCompile: *InnerArrayJoin native array.js:274:24
+     32  100.0%          LazyCompile: *join native array.js:287:46
+     18   56.3%            LazyCompile: *machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+      7   21.9%            LazyCompile: ~machines.filter.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:76:34
+      4   12.5%            LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      3    9.4%            LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+     16   33.3%        LazyCompile: ~InnerArrayJoin native array.js:274:24
+     11   68.8%          LazyCompile: ~join native array.js:287:46
+      5   45.5%            LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+      4   36.4%            LazyCompile: ~machines.filter.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:76:34
+      2   18.2%            LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      5   31.3%          LazyCompile: *join native array.js:287:46
+      2   40.0%            LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+      2   40.0%            LazyCompile: ~machines.filter.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:76:34
+      1   20.0%            LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      3    5.9%      LazyCompile: ~Join native array.js:119:14
+      3  100.0%        LazyCompile: ~InnerArrayJoin native array.js:274:24
+      3  100.0%          LazyCompile: ~join native array.js:287:46
+      2   66.7%            LazyCompile: ~machines.filter.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:76:34
+      1   33.3%            LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+
+     46    3.9%  v8::internal::Heap::AllocateFixedArrayWithFiller(int, v8::internal::PretenureFlag, v8::internal::Object*)
+     43   93.5%    v8::internal::Builtin_ArraySlice(int, v8::internal::Object**, v8::internal::Isolate*)
+     26   60.5%      LazyCompile: *shifts.forEach.shift /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:42:18
+     26  100.0%        Builtin: ArrayForEach
+     19   73.1%          LazyCompile: ~burnMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:21:21
+     19  100.0%            LazyCompile: ~machines.forEach.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:66:22
+      6   23.1%          LazyCompile: *machines.forEach.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:66:22
+      6  100.0%            Builtin: ArrayForEach
+      1    3.8%          LazyCompile: *burnMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:21:21
+      1  100.0%            LazyCompile: ~machines.forEach.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:66:22
+      9   20.9%      LazyCompile: ~cloneMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:4:22
+      6   66.7%        LazyCompile: ~shifts.forEach.shift /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:42:18
+      6  100.0%          Builtin: ArrayForEach
+      6  100.0%            LazyCompile: ~burnMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:21:21
+      3   33.3%        LazyCompile: ~find.resolve.rule /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:31:64
+      3  100.0%          LazyCompile: ~resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      3  100.0%            LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+      7   16.3%      LazyCompile: *cloneMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:4:22
+      7  100.0%        LazyCompile: ~find.resolve.rule /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:31:64
+      7  100.0%          LazyCompile: ~resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      7  100.0%            LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+      1    2.3%      LazyCompile: *find.resolve.rule /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:31:64
+      1  100.0%        LazyCompile: *resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      1  100.0%          LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+      1  100.0%            Builtin: ArrayForEach
+      3    6.5%    v8::internal::Builtin_ArrayUnshift(int, v8::internal::Object**, v8::internal::Isolate*)
+      3  100.0%      LazyCompile: ~find.resolve.rule /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:31:64
+      3  100.0%        LazyCompile: ~resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      3  100.0%          LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+      3  100.0%            Builtin: ArrayForEach
+
+     40    3.4%  void node::StreamBase::JSMethod<node::LibuvStreamWrap, &(int node::StreamBase::WriteString<(node::encoding)1>(v8::FunctionCallbackInfo<v8::Value> const&))>(v8::FunctionCallbackInfo<v8::Value> const&)
+     40  100.0%    v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+     40  100.0%      LazyCompile: ~createWriteReq net.js:795:24
+     40  100.0%        LazyCompile: ~Socket._writeGeneric net.js:714:42
+     40  100.0%          LazyCompile: ~Socket._write net.js:791:35
+     40  100.0%            LazyCompile: ~doWrite _stream_writable.js:380:17
+
+     28    2.4%  node::(anonymous namespace)::ContextifyScript::New(v8::FunctionCallbackInfo<v8::Value> const&)
+     28  100.0%    v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+     26   92.9%      LazyCompile: ~runInThisContext bootstrap_node.js:503:28
+     26  100.0%        LazyCompile: ~NativeModule.compile bootstrap_node.js:589:44
+     26  100.0%          LazyCompile: ~NativeModule.require bootstrap_node.js:521:34
+      5   19.2%            Script: ~<anonymous> module.js:1:11
+      4   15.4%            Script: ~<anonymous> util.js:1:11
+      3   11.5%            Script: ~<anonymous> tty.js:1:11
+      2    7.7%            Script: ~<anonymous> stream.js:1:11
+      2    7.7%            Script: ~<anonymous> internal/loader/Loader.js:1:11
+      1    3.8%            Script: ~<anonymous> readline.js:1:11
+      1    3.8%            Script: ~<anonymous> net.js:1:11
+      1    3.8%            Script: ~<anonymous> internal/url.js:1:11
+      1    3.8%            Script: ~<anonymous> internal/loader/ModuleRequest.js:1:11
+      1    3.8%            Script: ~<anonymous> fs.js:1:11
+      1    3.8%            Script: ~<anonymous> _stream_readable.js:1:11
+      1    3.8%            LazyCompile: ~setup_performance internal/process.js:12:27
+      1    3.8%            LazyCompile: ~setupGlobalVariables bootstrap_node.js:255:32
+      1    3.8%            LazyCompile: ~setupGlobalTimeouts bootstrap_node.js:304:31
+      1    3.8%            LazyCompile: ~setupGlobalConsole bootstrap_node.js:314:30
+      2    7.1%      LazyCompile: ~createScript vm.js:79:22
+      2  100.0%        LazyCompile: ~runInThisContext vm.js:151:26
+      2  100.0%          LazyCompile: ~Module._compile module.js:598:37
+      2  100.0%            LazyCompile: ~Module._extensions..js module.js:650:37
+
+     26    2.2%  UNKNOWN
+
+     15    1.3%  LazyCompile: ~ConvertToString native array.js:132:25
+     14   93.3%    LazyCompile: *DoJoin native array.js:94:16
+     14  100.0%      LazyCompile: ~Join native array.js:119:14
+     14  100.0%        LazyCompile: ~InnerArrayJoin native array.js:274:24
+     14  100.0%          LazyCompile: ~join native array.js:287:46
+      9   64.3%            LazyCompile: ~machines.filter.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:76:34
+      3   21.4%            LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+      2   14.3%            LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      1    6.7%    LazyCompile: ~DoJoin native array.js:94:16
+      1  100.0%      LazyCompile: ~Join native array.js:119:14
+      1  100.0%        LazyCompile: ~InnerArrayJoin native array.js:274:24
+      1  100.0%          LazyCompile: ~join native array.js:287:46
+      1  100.0%            LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+
+     13    1.1%  syscall
+
+     12    1.0%  Builtin: InterpreterEntryTrampoline
+      4   33.3%    LazyCompile: *DoJoin native array.js:94:16
+      4  100.0%      LazyCompile: ~Join native array.js:119:14
+      4  100.0%        LazyCompile: ~InnerArrayJoin native array.js:274:24
+      4  100.0%          LazyCompile: ~join native array.js:287:46
+      2   50.0%            LazyCompile: ~machines.sort /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:74:32
+      2   50.0%            LazyCompile: ~machines.filter.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:76:34
+      1    8.3%    LazyCompile: ~resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      1  100.0%      LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+      1  100.0%        Builtin: ArrayForEach
+      1  100.0%          LazyCompile: ~burnMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:21:21
+      1  100.0%            LazyCompile: ~machines.forEach.machine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:66:22
+      1    8.3%    LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      1  100.0%      LazyCompile: ~fromLexems /home/mcfinley/projects/current/zen-parser/lib/Parser.js:29:14
+      1  100.0%        Script: ~<anonymous> /home/mcfinley/projects/current/zen-parser/examples/calc.js:1:11
+      1  100.0%          LazyCompile: ~Module._compile module.js:598:37
+      1  100.0%            LazyCompile: ~Module._extensions..js module.js:650:37
+      1    8.3%    LazyCompile: ~formatObject util.js:651:22
+      1  100.0%      LazyCompile: ~formatValue util.js:400:21
+      1  100.0%        LazyCompile: ~formatProperty util.js:832:24
+      1  100.0%          LazyCompile: ~formatObject util.js:651:22
+      1  100.0%            LazyCompile: ~formatValue util.js:400:21
+      1    8.3%    LazyCompile: ~find.resolve.rule /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:31:64
+      1  100.0%      LazyCompile: ~resolve /home/mcfinley/projects/current/zen-parser/lib/helpers/Maybe.js:34:10
+      1  100.0%        LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+      1  100.0%          Builtin: ArrayForEach
+      1  100.0%            LazyCompile: ~burnMachine /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:21:21
+      1    8.3%    LazyCompile: ~InsertionSort native array.js:542:23
+      1  100.0%      LazyCompile: ~QuickSort native array.js:573:19
+      1  100.0%        LazyCompile: ~InnerArraySort native array.js:529:24
+      1  100.0%          LazyCompile: ~sort native array.js:748:46
+      1  100.0%            LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      1    8.3%    LazyCompile: *collection.reduce /home/mcfinley/projects/current/zen-parser/lib/helpers/rich.js:4:3
+      1  100.0%      Builtin: ArrayReduce
+      1  100.0%        LazyCompile: ~find /home/mcfinley/projects/current/zen-parser/lib/helpers/rich.js:3:14
+      1  100.0%          LazyCompile: ~reduces.forEach.reduce /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:30:19
+      1  100.0%            Builtin: ArrayForEach
+      1    8.3%    LazyCompile: *Join native array.js:119:14
+      1  100.0%      LazyCompile: ~InnerArrayJoin native array.js:274:24
+      1  100.0%        LazyCompile: ~join native array.js:287:46
+      1  100.0%          LazyCompile: ~parse /home/mcfinley/projects/current/zen-parser/lib/parser/parse.js:60:15
+      1  100.0%            LazyCompile: ~fromLexems /home/mcfinley/projects/current/zen-parser/lib/Parser.js:29:14
+      1    8.3%    Builtin: ArrayForEach
+      1  100.0%      LazyCompile: ~Array.find /home/mcfinley/projects/current/zen-parser/lib/helpers/rich.js:101:33
+      1  100.0%        LazyCompile: ~wasSetParsed /home/mcfinley/projects/current/zen-parser/lib/parser/create-table.js:84:22
+      1  100.0%          LazyCompile: ~createTable /home/mcfinley/projects/current/zen-parser/lib/parser/create-table.js:90:21
+      1  100.0%            LazyCompile: ~Parser /home/mcfinley/projects/current/zen-parser/lib/Parser.js:12:15
+

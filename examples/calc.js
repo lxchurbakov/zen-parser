@@ -62,7 +62,7 @@ const source = `
   a = 14;
 `;
 
-const lexems = lexer.fromString(new Array(10).fill(source).join(' '));
+const lexems = lexer.fromString(new Array(100).fill(source).join(' '));
 
 // console.log({ lexems });
 
@@ -92,7 +92,7 @@ const start = 'expr';
 
 const parser = new Parser({ start, rules });
 
-console.dir(parser.getTable(), { depth: Infinity });
+// console.dir(parser.getTable(), { depth: Infinity });
 
 console.time('1');
 const ast = parser.fromLexems(lexems);
@@ -126,15 +126,15 @@ const simplify = (entry) => {
 
 };
 //
-console.dir(
-  ast.map(machine => {
-    const m = machine.stack[1];
-    const p = 0;
-    // const p = machine.weight;
-
-    return { m, p };
-  })
-, { depth: Infinity });
+// console.dir(
+//   ast.map(machine => {
+//     const m = machine.stack[1];
+//     const p = 0;
+//     // const p = machine.weight;
+//
+//     return { m, p };
+//   })
+// , { depth: Infinity });
 
 // 1441344324422331110244234433220
 // 1441344331244221110244220344330
