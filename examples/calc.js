@@ -12,9 +12,11 @@ const lexer = new Lexer({
   ]
 });
 
-const source = `1 * 8`;
+const source = `2 * 5 + 1`;
 
 const lexems = lexer.fromString(source);
+
+console.log({ lexems });
 
 /* Parse */
 
