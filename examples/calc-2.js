@@ -14,7 +14,7 @@ const lexer = new Lexer({
   ]
 });
 
-const source = `1 + +`;
+const source = `1 + 2 +`;
 
 const lexems = lexer.fromString(source);
 
@@ -59,7 +59,3 @@ console.dir(
     return { m, p };
   })
 , { depth: Infinity });
-
-// 1441344324422331110244234433220
-// 1441344331244221110244220344330
-// 1441344331244221110244234433220
