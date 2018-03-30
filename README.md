@@ -27,9 +27,12 @@ console.log(tree);
 /* Additional Stuff */
 
 console.log(parser.getTable());
-
 ```
+
+## Examples
+
+See examples folder
 
 ## Performance
 
-265 * 1000 lexems = 22439 mss
+265 * 1000 lexems = 22439 ms
