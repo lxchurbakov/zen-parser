@@ -21,7 +21,7 @@ console.log({ lexems });
 /* Parse */
 
 const rules = [
-  { production: 'expr', pattern: [ 'number' ],               name: 'just',  priority: 2, side: 'left', map: ([number]) => ([ { number: number.v } ]) },
+  { production: 'expr', pattern: [ 'number' ],               name: 'just',  priority: 2, side: 'left', map: ([number]) => ({ token: 'expr', number: number.v, rest: [{ token: 'nothing' }] }) },
   { production: 'expr', pattern: [ 'expr', 'plus', 'expr'],  name: 'sum',   priority: 2, side: 'left' },
   { production: 'expr', pattern: [ 'expr', 'minus', 'expr'], name: 'min',   priority: 2, side: 'left' },
   { production: 'expr', pattern: [ 'minus', 'expr'],         name: 'umin',  priority: 2, side: 'left' },
