@@ -12,7 +12,7 @@ const lexer = new Lexer({
   ]
 });
 
-const source = `41 * 102 - 2 * 22 - 4`;
+const source = `1 - 2 * 4`;
 
 const lexems = lexer.fromString(source);
 
